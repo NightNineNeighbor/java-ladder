@@ -1,33 +1,31 @@
 package ladder;
 
+import java.util.ArrayList;
+
 public class OutputView {
-    private static final String VERTICAL_BAR = "|";
-    private static final String HORIZONTAL_BAR = "-";
-    private static final String BLANK = " ";
+    private final static String FORMAT = "%-6s";
     private Ladder ladder;
+    private ArrayList<String> peopleName;
 
-    public OutputView(Ladder ladder) {
+    public OutputView(Ladder ladder, ArrayList<String> peopleName) {
         this.ladder = ladder;
+        this.peopleName = peopleName;
     }
 
-    public void printLadder(){
-        System.out.println(makeLadder());
+    public void print() {
+        printPeopleName();
+        printLadder();
     }
 
-    private String makeLadder() {
+    private void printPeopleName() {
         StringBuilder sb = new StringBuilder();
-        for (int h = 0; h < ladder.getLadderHeight(); h++) {
-            makeFoothold(sb, h);
+        for (String name : peopleName) {
+            sb.append(String.format(FORMAT, name));
         }
-        return sb.toString();
+        System.out.println(sb.toString());
     }
 
-    private void makeFoothold(StringBuilder sb, int h) {
-        for (int w = 0; w < ladder.getNumberOfFoothold(); w++) {
-            sb.append(VERTICAL_BAR);
-            sb.append(ladder.isFoothold(h, w) ? HORIZONTAL_BAR : BLANK);
-        }
-        sb.append(VERTICAL_BAR);
-        sb.append(System.lineSeparator());
+    private void printLadder() {
+        System.out.println(ladder.stringifyLadder());
     }
 }
