@@ -3,20 +3,18 @@ package ladder;
 import java.util.ArrayList;
 
 public class Ladder {
-    private ArrayList<Line> ladder;
+    private ArrayList<Line> lines;
 
     public Ladder(int ladderHeight, int countOfFoothold) {
-        ladder = new ArrayList<>();
+        lines = new ArrayList<>();
         for (int i = 0; i < ladderHeight; i++) {
-            ladder.add(new Line(countOfFoothold));
+            lines.add(new Line(countOfFoothold));
         }
     }
 
-    public String stringifyLadder(){
-        StringBuilder sb = new StringBuilder();
-        for (Line l : ladder) {
-            l.stringifyLine(sb);
-        }
-        return sb.toString();
+    public ArrayList<Line> getLines(){
+        return this.lines;
     }
+
+
 }

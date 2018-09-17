@@ -1,6 +1,7 @@
 package ladder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LadderGame {
     private Ladder ladder;
@@ -12,7 +13,7 @@ public class LadderGame {
         ladder = new Ladder(ladderHeight, numberOfFoothold);
     }
 
-    public ArrayList<String> getPeopleName(){
+    public List<String> getPeopleName(){
         return this.peopleName;
     }
 

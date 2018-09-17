@@ -1,11 +1,9 @@
 package ladder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Line {
-    private static final String VERTICAL_BAR = "|";
-    private static final String HORIZONTAL_BAR = "-----";
-    private static final String BLANK = "     ";
     private ArrayList<Boolean> points;
 
     public Line(int countOfFoothold) {
@@ -17,13 +15,11 @@ public class Line {
         }
     }
 
-    public void stringifyLine(StringBuilder sb) {
-        sb.append((VERTICAL_BAR));
-        for (Boolean point : points) {
-            sb.append(point ? HORIZONTAL_BAR : BLANK);
-            sb.append((VERTICAL_BAR));
-        }
-        sb.append(System.lineSeparator());
+    public List<Boolean> getPoints(){
+        return this.points;
     }
+
+
+
 }
 
